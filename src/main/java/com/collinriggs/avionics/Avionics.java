@@ -1,5 +1,6 @@
 package com.collinriggs.avionics;
 
+import com.collinriggs.avionics.Items.ModItems;
 import com.collinriggs.avionics.blocks.GuiHandler;
 import com.collinriggs.avionics.proxy.CommonProxy;
 
@@ -19,6 +20,7 @@ public class Avionics {
 
 	public static boolean disableFurnace = false;
 	public static boolean disableCraftingTable = false;
+	public static boolean enableTableRecipe = true;
 
 	@Instance(value = Ref.modid)
 	public static Avionics instance;
@@ -37,9 +39,11 @@ public class Avionics {
 
 		disableCraftingTable = config.getBoolean("disableCraftingTable", Configuration.CATEGORY_GENERAL, true, "Disables Crafting Table");
 		disableFurnace = config.getBoolean("disableFurnace", Configuration.CATEGORY_GENERAL, false, "Disables Furnace");
+		enableTableRecipe = config.getBoolean("enableTableRecipe", Configuration.CATEGORY_GENERAL, true, "Enables a Crafting Recipe for the Avionic Table");
 
 		config.save();
 		proxy.preInit(event);
+		ModItems.preInit();
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 	}
