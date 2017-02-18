@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 /**
- * Created by Jeremy on 11/12/2016.
+ * Created by Deathly on 11/12/2016.
  */
 
 public class GuiTinyChest extends GuiContainer {
